@@ -1,16 +1,16 @@
 <div class="container">
 	<div class="header">
 		<div class="title">Configuration des offres promotionnelles</div>
-		<button mat-flat-button color="primary">Primary</button>
+		<button mat-flat-button class="primary-button">Primary</button>
 	</div>
 	<div class="content">
 		<div class="left">
 		</div>
 		<div class="space"></div>
 		<div class="right">
-			<div class="top">
+			<div class="header">
 				<div class="title">Paramètres de l'offre</div>
-				<button mat-flat-button color="primary">Supprimer l'offre</button>
+				<button mat-flat-button class="secondary-button">Supprimer l'offre</button>
 			</div>
 			<mat-form-field appearance="outline">
 				<mat-label>libellé de l'offre</mat-label>
@@ -23,7 +23,7 @@
 
 					<div class="horizontal">
 						<div class="right-space">Période de validité</div>
-						<mat-checkbox class="example-margin">Début</mat-checkbox>
+						<mat-checkbox  class="right-space">Début</mat-checkbox>
 						<mat-form-field appearance="outline">
 							<input matInput [matDatepicker]="picker1" placeholder="Choose a date">
 							<mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
@@ -31,17 +31,15 @@
 						</mat-form-field>
 					</div>
 
-
 					<div class="horizontal">
-						<div>Période de validité</div>
-						<mat-checkbox class="example-margin">Début</mat-checkbox>
+						<div class="right-space">Période de validité</div>
+						<mat-checkbox  class="right-space">Fin</mat-checkbox>
 						<mat-form-field appearance="outline">
 							<input matInput [matDatepicker]="picker2" placeholder="Choose a date">
 							<mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
 							<mat-datepicker #picker2></mat-datepicker>
 						</mat-form-field>
 					</div>
-          
           
           
 					<div class="horizontal">
@@ -63,7 +61,7 @@
 					<mat-form-field class="stretch" appearance="outline">
 						<textarea  matInput></textarea>
 					</mat-form-field>
-          <button mat-flat-button color="primary">Primary</button>
+          <button mat-flat-button class="primary-button">Enregistrer</button>
 		</div>
 		<div class="space"></div>
 	</div>
