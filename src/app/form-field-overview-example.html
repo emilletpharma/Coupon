@@ -20,57 +20,59 @@
 					<mat-label>Code promotionnel</mat-label>
 					<input matInput placeholder="Code promotionnel">
           </mat-form-field>
-<mat-grid-list cols="3">
 
-						<mat-grid-tile class="right-space bold">Période de validité</mat-grid-tile>
+					<div class="flex-table">
+
+						<div class="right-space bold">Période de validité</div>
             
-<mat-grid-tile>
-						<mat-checkbox  class="right-space">Début</mat-checkbox>
-            </mat-grid-tile>
-            <mat-grid-tile>
-						<mat-form-field appearance="outline">
-							<input matInput [matDatepicker]="picker1" placeholder="Choisir une date">
-							<mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
-							<mat-datepicker #picker1></mat-datepicker>
-						</mat-form-field>
-            </mat-grid-tile>
+
+						<div>
+							<mat-checkbox class="right-space">Début</mat-checkbox>
+						</div>
+						<div>
+							<mat-form-field appearance="outline">
+								<input matInput [matDatepicker]="picker1" placeholder="Choisir une date">
+								<mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+								<mat-datepicker #picker1></mat-datepicker>
+							</mat-form-field>
+						</div>
 
 
 
-						<mat-grid-tile class="right-space bold">aaa</mat-grid-tile>
-            <mat-grid-tile>
-						<mat-checkbox  class="right-space">Fin</mat-checkbox>
-             </mat-grid-tile>
-             <mat-grid-tile>
-						<mat-form-field appearance="outline">
-							<input matInput [matDatepicker]="picker2" placeholder="Choisir une date">
-							<mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
-							<mat-datepicker #picker2></mat-datepicker>
-						</mat-form-field>
-            </mat-grid-tile>
+						<div class="right-space bold"></div>
+						<div>
+							<mat-checkbox class="right-space">Fin</mat-checkbox>
+						</div>
+						<div>
+							<mat-form-field appearance="outline">
+								<input matInput [matDatepicker]="picker2" placeholder="Choisir une date">
+								<mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
+								<mat-datepicker #picker2></mat-datepicker>
+							</mat-form-field>
+						</div>
 
-</mat-grid-list>
-          
+					</div>
+
 					<div class="horizontal">
 						<div class="right-space bold">Réduction</div>
 						<mat-form-field appearance="outline" class="right-space">
 							<input matInput placeholder="Pourcentage">
             </mat-form-field>
-						<div>%</div>
+							<div>%</div>
 					</div>
 
-          <div class="horizontal">
+					<div class="horizontal">
 						<div class="right-space bold">Durée</div>
 						<mat-form-field appearance="outline" class="right-space">
 							<input matInput placeholder="Nombre">
             </mat-form-field>
-						<div>mois</div>
+							<div>mois</div>
 					</div>
 					<div class="bold">Description</div>
 					<mat-form-field class="full-width" appearance="outline">
 						<textarea  matInput></textarea>
 					</mat-form-field>
-          <button mat-flat-button class="primary-button">Enregistrer</button>
+					<button mat-flat-button class="primary-button">Enregistrer</button>
 		</div>
 		<div class="space"></div>
 	</div>

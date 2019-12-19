@@ -87,16 +87,14 @@
 }
 
 
-.flex-table {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, 33.33%);
-    grid-template-rows: repeat(auto-fill, 100%);
-}
-.first {
-    grid-column-start: 1;
-    grid-column-end: 4;
-}
 
-mat-grid-tile {
-  background: lightblue;
+.flex-table {
+  width: 100%;
+  display: flex;
+  flex-flow: row wrap;
+
+
+   .flex-row {
+    background: red;
+  }
 }
