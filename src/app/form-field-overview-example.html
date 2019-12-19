@@ -1,6 +1,6 @@
 <div class="container">
 	<div class="header">
-		<div class="title">Configuration des offres promotionnelles</div>
+		<div class="title bold">Configuration des offres promotionnelles</div>
 		<button mat-flat-button class="primary-button">Primary</button>
 	</div>
 	<div class="content">
@@ -9,7 +9,7 @@
 		<div class="space"></div>
 		<div class="right">
 			<div class="header">
-				<div class="title">Paramètres de l'offre</div>
+				<div class="title bold">Paramètres de l'offre</div>
 				<button mat-flat-button class="secondary-button">Supprimer l'offre</button>
 			</div>
 			<mat-form-field appearance="outline">
@@ -22,20 +22,20 @@
           </mat-form-field>
 
 					<div class="horizontal">
-						<div class="right-space">Période de validité</div>
+						<div class="right-space bold">Période de validité</div>
 						<mat-checkbox  class="right-space">Début</mat-checkbox>
 						<mat-form-field appearance="outline">
-							<input matInput [matDatepicker]="picker1" placeholder="Choose a date">
+							<input matInput [matDatepicker]="picker1" placeholder="Choisir une date">
 							<mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
 							<mat-datepicker #picker1></mat-datepicker>
 						</mat-form-field>
 					</div>
 
 					<div class="horizontal">
-						<div class="right-space">Période de validité</div>
+						<div class="right-space bold"></div>
 						<mat-checkbox  class="right-space">Fin</mat-checkbox>
 						<mat-form-field appearance="outline">
-							<input matInput [matDatepicker]="picker2" placeholder="Choose a date">
+							<input matInput [matDatepicker]="picker2" placeholder="Choisir une date">
 							<mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
 							<mat-datepicker #picker2></mat-datepicker>
 						</mat-form-field>
@@ -43,7 +43,7 @@
           
           
 					<div class="horizontal">
-						<div class="right-space">Réduction</div>
+						<div class="right-space bold">Réduction</div>
 						<mat-form-field appearance="outline" class="right-space">
 							<input matInput placeholder="libellé de l'offre">
             </mat-form-field>
@@ -51,13 +51,13 @@
 					</div>
 
           <div class="horizontal">
-						<div class="right-space">Durée</div>
+						<div class="right-space bold">Durée</div>
 						<mat-form-field appearance="outline" class="right-space">
 							<input matInput placeholder="libellé de l'offre">
             </mat-form-field>
 						<div>mois</div>
 					</div>
-					<div>Description</div>
+					<div class="bold">Description</div>
 					<mat-form-field class="stretch" appearance="outline">
 						<textarea  matInput></textarea>
 					</mat-form-field>
