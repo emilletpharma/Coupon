@@ -12,7 +12,7 @@
 				<div class="title bold">Paramètres de l'offre</div>
 				<button mat-flat-button class="secondary-button">Supprimer l'offre</button>
 			</div>
-			<mat-form-field appearance="outline">
+			<mat-form-field appearance="outline" class="full-width">
 				<mat-label>libellé de l'offre</mat-label>
 				<input matInput placeholder="libellé de l'offre">
       </mat-form-field>
@@ -45,7 +45,7 @@
 					<div class="horizontal">
 						<div class="right-space bold">Réduction</div>
 						<mat-form-field appearance="outline" class="right-space">
-							<input matInput placeholder="libellé de l'offre">
+							<input matInput placeholder="Pourcentage">
             </mat-form-field>
 						<div>%</div>
 					</div>
@@ -53,12 +53,12 @@
           <div class="horizontal">
 						<div class="right-space bold">Durée</div>
 						<mat-form-field appearance="outline" class="right-space">
-							<input matInput placeholder="libellé de l'offre">
+							<input matInput placeholder="Nombre">
             </mat-form-field>
 						<div>mois</div>
 					</div>
 					<div class="bold">Description</div>
-					<mat-form-field class="stretch" appearance="outline">
+					<mat-form-field class="full-width" appearance="outline">
 						<textarea  matInput></textarea>
 					</mat-form-field>
           <button mat-flat-button class="primary-button">Enregistrer</button>
