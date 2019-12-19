@@ -24,6 +24,7 @@
       }
       
       .right {
+        width: 700px;
         padding: 10px;
         display: flex;
         flex-direction: column;
@@ -87,18 +88,15 @@
 
 
 .flex-table {
-  display: flex;
-  flex-flow: row wrap;
-  border-left: solid 1px $table-border;
-  transition: 0.5s;
-  &:first-of-type {
-    border-top: solid 1px $table-header-border;
-    border-left: solid 1px $table-header-border;
-  }
-  &:first-of-type .flex-row {
-    background: $table-header;
-    color: white;
-    border-color: $table-header-border;
-  }
+    display: grid;
+    grid-template-columns: repeat(auto-fill, 33.33%);
+    grid-template-rows: repeat(auto-fill, 100%);
+}
+.first {
+    grid-column-start: 1;
+    grid-column-end: 4;
 }
 
+mat-grid-tile {
+  background: lightblue;
+}
