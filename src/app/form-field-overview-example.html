@@ -9,7 +9,7 @@
 		<div class="space"></div>
 		<div class="right">
 			<div class="top">
-				<div class="title">Paramètres</div>
+				<div class="title">Paramètres de l'offre</div>
 				<button mat-flat-button color="primary">Supprimer l'offre</button>
 			</div>
 			<mat-form-field appearance="outline">
@@ -20,7 +20,8 @@
 					<mat-label>Code promotionnel</mat-label>
 					<input matInput placeholder="Code promotionnel">
           </mat-form-field>
-					<div class="raw">
+
+					<div class="horizontal">
 						<div>Période de validité</div>
 						<mat-checkbox class="example-margin">Début</mat-checkbox>
 						<mat-form-field appearance="outline">
@@ -29,19 +30,20 @@
 							<mat-datepicker #picker></mat-datepicker>
 						</mat-form-field>
 					</div>
-					<div class="raw">
+          
+          
+					<div class="horizontal">
 						<div>Réduction</div>
 						<mat-form-field appearance="outline">
-							<mat-label>libellé de l'offre</mat-label>
 							<input matInput placeholder="libellé de l'offre">
-              </mat-form-field>
-							<div>mois</div>
+            </mat-form-field>
+						<div>mois</div>
 					</div>
 					<div>Description</div>
-					<mat-form-field appearance="outline">
-						<mat-label>libellé de l'offre</mat-label>
-						<textarea matInput placeholder="libellé de l'offre"></textarea>
+					<mat-form-field class="stretch" appearance="outline">
+						<textarea  matInput></textarea>
 					</mat-form-field>
+          <button mat-flat-button color="primary">Primary</button>
 		</div>
 		<div class="space"></div>
 	</div>
