@@ -5,6 +5,41 @@
 	</div>
 	<div class="content">
 		<div class="left">
+      <div class="header">
+        <div class="frame">
+      <div class="full-width bold title">Organiser par Date</div>
+       </div>
+       <mat-icon aria-hidden="false" aria-label="Example home icon">arrow_downward</mat-icon>
+      </div>
+      <mat-list>
+ <mat-list-item> Pepper </mat-list-item>
+ <mat-list-item> Salt </mat-list-item>
+ <mat-list-item> Paprika </mat-list-item>
+  <mat-list-item> Pepper </mat-list-item>
+ <mat-list-item> Salt </mat-list-item>
+ <mat-list-item> Paprika </mat-list-item>
+  <mat-list-item> Pepper </mat-list-item>
+ <mat-list-item> Salt </mat-list-item>
+ <mat-list-item> Paprika </mat-list-item>
+  <mat-list-item> Pepper </mat-list-item>
+ <mat-list-item> Salt </mat-list-item>
+ <mat-list-item> Paprika </mat-list-item>
+  <mat-list-item> Pepper </mat-list-item>
+ <mat-list-item> Salt </mat-list-item>
+ <mat-list-item> Paprika </mat-list-item>
+  <mat-list-item> Pepper </mat-list-item>
+ <mat-list-item> Salt </mat-list-item>
+ <mat-list-item> Paprika </mat-list-item>
+  <mat-list-item> Pepper </mat-list-item>
+ <mat-list-item> Salt </mat-list-item>
+ <mat-list-item> Paprika </mat-list-item>
+  <mat-list-item> Pepper </mat-list-item>
+ <mat-list-item> Salt </mat-list-item>
+ <mat-list-item> Paprika </mat-list-item>
+
+</mat-list>
+
+
 		</div>
 		<div class="space"></div>
 		<div class="right">
@@ -33,15 +68,15 @@
 
 						<div class="vertical">
 							<mat-form-field *ngFor="let validity of validities" appearance="outline" class="cell">
-								<input matInput [matDatepicker]="picker1" placeholder="Choisir une date">
-								<mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
-								<mat-datepicker #picker1></mat-datepicker>
+								<input matInput [matDatepicker]="picker" placeholder="Choisir une date">
+								<mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+								<mat-datepicker #picker></mat-datepicker>
 							</mat-form-field>
 						</div>
 					</div>
 					<div class="horizontal">
 						<div class="vertical">
-							<div *ngFor="let promotion of promotions" 
+							<div *ngFor="let promotion of promotions"
               class="right-space bold cell">{{promotion.title}}</div>
 						</div>
 						<div class="vertical">
