@@ -1,12 +1,15 @@
 export class Intermediary {
+
+  cip? : string
 	constructor(
     public name: string, 
-    public cip?: string, 
+    cip?: string, 
     public pharmacyName?: string, 
     public pharmacyCP?: string, 
     public pharmacyCity?: string,
     public pharmacyHolderName?: string, 
     public pharmacyEmail?: string) {
+      this.cip = cip;
 	}
 
 	static fromJson(json: Intermediary): Intermediary {
