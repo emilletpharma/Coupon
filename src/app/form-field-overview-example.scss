@@ -1,53 +1,42 @@
 .container {
-  height: 100vh;
+  height: 100%;
+  padding: 0;
+
+
   margin: 0px;
   display: flex;
   flex-direction: column;
-  .header {
-      display: flex;
-      flex-direction: row;
-      align-items: center;
-      margin-bottom: 40px;
 
-      .title {
-        font-size: 20px;
-        margin-right: 20px;
-      }
-
-
-  }
   .content {
+    padding: 10px;
+    background: blue;
+    //
+    height: 100%;
     display: flex;
     flex-direction: row;
           align-items: flex-start;
           
           .left {
-            height: 100%;
+
+            background: yellow;
+            
+            
+          //  height: 100%;
             padding: 10px;
             width: 300px;
             border: solid 1px rgba(0, 0, 0, 0.16);
 
-          .header {
-          width: 100%;
-          display: flex;
-          flex-direction: row;
-          align-items: center;
-          justify-content: stretch;
-          .frame {
-            padding: 5px;
-            flex-grow: 1;
-            margin-right: 5px;
-            background-color: rgba(0, 0, 0, 0.08);
 
-          .title {
-            font-size: 14px;
-          }
-          }
-        }
         mat-list {
+          overflow: scroll;
+          
+          background: red;
+          
+         // flex: 1;
+
  // max-height: 50%;
-    border: 3px solid green;
-    overflow: auto;
+ //flex-grow: 0;
+    //overflow: ;
 }
       }
       
