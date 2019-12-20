@@ -6,9 +6,13 @@ import {Component} from '@angular/core';
   templateUrl: 'form-field-overview-example.html',
   styleUrls: ['form-field-overview-example.scss'],
 })
-export class FormFieldOverviewExample {}
+export class FormFieldOverviewExample {
+
+  validities = [
+    {title: "Période de validité", subtitle: "Début", date: "12/12/2019"},
+    {title: "", subtitle: "Fin", date: "12/12/2019"}
+  ]
 
 
-/**  Copyright 2019 Google LLC. All Rights Reserved.
-    Use of this source code is governed by an MIT-style license that
-    can be found in the LICENSE file at http://angular.io/license */
+}
+
