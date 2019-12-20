@@ -13,6 +13,11 @@ export class FormFieldOverviewExample {
     {title: "", subtitle: "Fin", date: "12/12/2019"}
   ]
 
+  promotions = [
+    {title: "Réduction", unit: "%"},
+    {title: "Durée", unit: "mois"}
+  ]
+
 
 }
 

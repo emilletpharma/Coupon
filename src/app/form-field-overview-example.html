@@ -23,16 +23,16 @@
 
 					<div class="horizontal">
 						<div class="vertical">
-							<div *ngFor="let validity of validities">{{validity.title}}</div>
+							<div *ngFor="let validity of validities" class="bold right-space cell">{{validity.title}}</div>
 						</div>
 
 						<div class="vertical">
-							<mat-checkbox *ngFor="let validity of validities" class="right-space">
+							<mat-checkbox *ngFor="let validity of validities" class="right-space cell">
 								{{validity.subtitle}}</mat-checkbox>
 						</div>
 
 						<div class="vertical">
-							<mat-form-field *ngFor="let validity of validities" appearance="outline">
+							<mat-form-field *ngFor="let validity of validities" appearance="outline" class="cell">
 								<input matInput [matDatepicker]="picker1" placeholder="Choisir une date">
 								<mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
 								<mat-datepicker #picker1></mat-datepicker>
@@ -41,16 +41,17 @@
 					</div>
 					<div class="horizontal">
 						<div class="vertical">
-							<div *ngFor="let validity of validities" class="right-space bold">Durée</div>
+							<div *ngFor="let promotion of promotions" 
+              class="right-space bold cell">{{promotion.title}}</div>
 						</div>
 						<div class="vertical">
-							<mat-form-field *ngFor="let validity of validities" appearance="outline"
-								class="right-space">
+							<mat-form-field *ngFor="let promotion of promotions" appearance="outline"
+								class="right-space cell">
 								<input matInput placeholder="Nombre">
             </mat-form-field>
 						</div>
 						<div class="vertical">
-							<div *ngFor="let validity of validities" class="right-space bold">Durée</div>
+							<div *ngFor="let promotion of promotions" class="right-space cell">{{promotion.unit}}</div>
 						</div>
 					</div>
 
