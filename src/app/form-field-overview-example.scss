@@ -1,5 +1,5 @@
 .container {
-  height: 100%;
+  height: 100vh;
   padding: 0;
 
 
@@ -8,16 +8,19 @@
   flex-direction: column;
 
   .content {
+    
+    height: 100%;
     padding: 10px;
     background: blue;
-    //
-    height: 100%;
+
     display: flex;
     flex-direction: row;
           align-items: flex-start;
           
           .left {
-
+            height: 100%;
+           overflow;
+            
             background: yellow;
             
             
@@ -26,17 +29,12 @@
             width: 300px;
             border: solid 1px rgba(0, 0, 0, 0.16);
 
-
-        mat-list {
-          overflow: scroll;
-          
-          background: red;
-          
-         // flex: 1;
-
- // max-height: 50%;
- //flex-grow: 0;
-    //overflow: ;
+mat-list {
+  flex-basis: 50%;
+  
+    //flex-grow: 0;
+    //border: 3px solid green;
+    overflow: auto;
 }
       }
       
