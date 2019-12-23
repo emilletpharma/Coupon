@@ -5,86 +5,85 @@
 	</div>
 
 	<div class="content">
+
 		<div class="left">
-
-      <table>
-        <th>
-          AAA
-        </th>
-        <tr *ngFor="let value of values">
-
-          {{value}}
-
-
-        </tr>
-
-
-      </table>
-
-
-
-
-
-
-
-
-
+			<table>
+				<th>
+					<div class="frame">
+						<div class="title">Organiser par Date</div>
+					</div>
+					<mat-icon aria-hidden="false" aria-label="Example home icon">arrow_downward</mat-icon>
+				</th>
+				<tr *ngFor="let value of values">
+					<td>
+						<div class="cell">
+							{{value}}
+						</div>
+					</td>
+				</tr>
+			</table>
 		</div>
+
 		<div class="space"></div>
+
 		<div class="right">
-      <div class="frame">
-			<div class="header">
-				<div class="title bold">Paramètres de l'offre</div>
-				<button mat-flat-button class="secondary-button">Supprimer l'offre</button>
-			</div>
-			<mat-form-field appearance="outline" class="full-width">
-				<mat-label>libellé de l'offre</mat-label>
-				<input matInput placeholder="libellé de l'offre">
-      </mat-form-field>
-				<mat-form-field appearance="outline">
-					<mat-label>Code promotionnel</mat-label>
-					<input matInput placeholder="Code promotionnel">
-          </mat-form-field>
+			<div class="frame">
+				<div class="header">
+					<div class="title bold">Paramètres de l'offre</div>
+					<button mat-flat-button class="secondary-button">Supprimer l'offre</button>
+				</div>
+				<mat-form-field appearance="outline" class="full-width">
+					<mat-label>libellé de l'offre</mat-label>
+					<input matInput placeholder="libellé de l'offre">
+        </mat-form-field>
+					<mat-form-field appearance="outline">
+						<mat-label>Code promotionnel</mat-label>
+						<input matInput placeholder="Code promotionnel">
+        </mat-form-field>
 
-					<div class="horizontal">
-						<div class="vertical">
-							<div *ngFor="let validity of validities" class="bold right-space cell">{{validity.title}}
+						<div class="horizontal">
+							<div class="vertical">
+								<div *ngFor="let validity of validities" class="bold right-space cell">
+									{{validity.title}}
+								</div>
+							</div>
+
+							<div class="vertical">
+								<mat-checkbox *ngFor="let validity of validities" class="right-space cell">
+									{{validity.subtitle}}</mat-checkbox>
+							</div>
+
+							<div class="vertical">
+								<mat-form-field *ngFor="let validity of validities" appearance="outline" class="cell">
+									<input matInput [matDatepicker]="picker" placeholder="Choisir une date">
+									<mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+									<mat-datepicker #picker></mat-datepicker>
+								</mat-form-field>
 							</div>
 						</div>
-
-						<div class="vertical">
-							<mat-checkbox *ngFor="let validity of validities" class="right-space cell">
-								{{validity.subtitle}}</mat-checkbox>
-						</div>
-
-						<div class="vertical">
-							<mat-form-field *ngFor="let validity of validities" appearance="outline" class="cell">
-								<input matInput [matDatepicker]="picker" placeholder="Choisir une date">
-								<mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-								<mat-datepicker #picker></mat-datepicker>
-							</mat-form-field>
-						</div>
-					</div>
-					<div class="horizontal">
-						<div class="vertical">
-							<div *ngFor="let promotion of promotions" class="right-space bold cell">{{promotion.title}}
+						<div class="horizontal">
+							<div class="vertical">
+								<div *ngFor="let promotion of promotions" class="right-space bold cell">
+									{{promotion.title}}
+								</div>
 							</div>
-						</div>
-						<div class="vertical">
-							<mat-form-field *ngFor="let promotion of promotions" appearance="outline"
-								class="right-space cell">
-								<input matInput placeholder="Nombre">
+							<div class="vertical">
+								<mat-form-field *ngFor="let promotion of promotions" appearance="outline"
+									class="right-space cell">
+									<input matInput placeholder="Nombre">
             </mat-form-field>
+							</div>
+							<div class="vertical">
+								<div *ngFor="let promotion of promotions" class="right-space cell">{{promotion.unit}}
+								</div>
+							</div>
 						</div>
-						<div class="vertical">
-							<div *ngFor="let promotion of promotions" class="right-space cell">{{promotion.unit}}</div>
+						<div class="horizontal-reverse">
+							<button mat-flat-button class="primary-button end">Enregistrer</button>
 						</div>
-					</div>
-          
-					<button mat-flat-button class="primary-button end">Enregistrer</button>
+			</div>
 		</div>
-    </div>
 		<div class="space"></div>
 	</div>
-  
+
 </div>
