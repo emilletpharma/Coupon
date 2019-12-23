@@ -1,66 +1,78 @@
+
 .container {
-  height: 100vh;
-  padding: 0;
-
-
-  margin: 0px;
+  height: 100%;
+   width: 100%;
   display: flex;
   flex-direction: column;
 
-  .header {
+  
+  
+
+.header {
+
+  flex-basis: 100px;
+
+
       display: flex;
-  flex-direction: row;
-  flex: 1;
-  }
+    flex-direction: row;
+          align-items: center;
+          
+
+
+}
 
   .content {
-    flex: 1;
+overflow: hidden;
+  padding: 0px;
+  margin: 0px;
+
     
-    height: 100%;
     //padding: 10px;
   //  background: blue;
 
     display: flex;
     flex-direction: row;
-          align-items: flex-start;
+          align-items: stretch;
           
           .left {
-            height: 100%;
            overflow-y:auto;
             
           //  background: yellow;
             
             
           //  height: 100%;
-          //  padding: 10px;
-            width: 300px;
-          //  border: solid 1px rgba(0, 0, 0, 0.16);
+            margin: 10px;
+            flex-basis: 200px;
+            border: solid 1px rgba(0, 0, 0, 0.16);
 
 
       }
       
       .right {
-        padding: 20px;
+        overflow: auto;
         display: flex;
         flex-direction: column;
         align-items: flex-start;
         align-content: space-between;
-        box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.16);
-        border: solid 1px rgba(0, 0, 0, 0.16);
 
-        .header {
-          width: 100%;
-          display: flex;
-          flex-direction: row;
-          align-items: center;
-          justify-content: space-between;
 
-          .title {
-            font-size: 24px;
+        .frame {
+          padding: 20px;
+          box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.16);
+          border: solid 1px rgba(0, 0, 0, 0.16);
+          
+          .header {
+            width: 100%;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: space-between;
+            
+            .title {
+              font-size: 24px;
           }
-        }
-
-
+          }
+}
 
         .horizontal {
           width: 100%;
@@ -70,9 +82,6 @@
         }
       }
 
-      .space {
-        flex: 1;
-      }
 
 
       
@@ -121,5 +130,11 @@
 .cell {
   height: 80px;
 }
+
+
+      .space {
+        flex: 1;
+      }
+
 
 
