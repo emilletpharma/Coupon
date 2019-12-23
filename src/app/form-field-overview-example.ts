@@ -22,22 +22,6 @@ export class FormFieldOverviewExample {
   ]
     )
 
-
-/*
-  couponValidityItemList = [
-    new CouponValidityItem(CouponItemType.From, "Période de validité", "Choisir une date", "Début"),
-    new CouponValidityItem(CouponItemType.From, "", "Choisir une date", "Fin")
-  ]
-
-  couponParamItemList = [
-    new CouponParamItem(CouponItemType.Percent, "Réduction", "Pourcentage", "%"),
-    new CouponParamItem(CouponItemType.Duration, "Durée", "Nombre", "mois")
-  ]
-  */
-
-  
-
-
 couponList = ["Offre interne", "Offre interne","Offre Fidélité", "b","a", "b","a", "b","a", "b","a", "b","a", "b","a", "b","a", "b","a", "b","a", "b","a", "b","a", "b","a", "b","a", "b","a", "b","a", "b","a", "b","a", "b","b","a", "b","a", "b","a", "b","a", "b","a", "b","a", "b","a", "b","a", "b","a", "b","b","a", "b","a", "b","a", "b","a", "b","a", "b","a", "b","a", "b","a", "b","a", "b","b","a", "b","a", "b","a", "b","a", "b","a", "b","a", "b","a", "b","a", "b","a", "b",]
 
 }
@@ -54,28 +38,10 @@ class Coupon {
 }
 
 class CouponItem {
-
   constructor(
     public identityItemList: CouponIdentityItem[], 
     public validityItemList:  CouponValidityItem[],
-    public paramItemList: CouponParamItem[]){}
-/*
-  identityItemList = [
-    new CouponIdentityItem(CouponItemType.Name ,"", "Libellé de l'offre"),
-    new CouponIdentityItem(CouponItemType.Code ,"", "Code promotionnel")
-  ]
-
-  validityItemList = [
-    new CouponValidityItem(CouponItemType.From, "Période de validité", "Choisir une date", "Début"),
-    new CouponValidityItem(CouponItemType.To, "", "Choisir une date", "Fin")
-  ]
-
-  paramItemList = [
-    new CouponParamItem(CouponItemType.Percent, "Réduction", "Pourcentage", "%"),
-    new CouponParamItem(CouponItemType.Duration, "Durée", "Nombre", "mois")
-  ]
-  */
-  
+    public paramItemList: CouponParamItem[]){}  
 }
 
 class CouponIdentityItem {
@@ -95,8 +61,6 @@ class CouponValidityItem {
     public date?: string) {}
 }
 
-//enum CouponValidityItemType {From, To}
-
 class CouponParamItem {
   constructor(
     public type: CouponItemType, 
@@ -106,8 +70,6 @@ class CouponParamItem {
     public value?: number) {}
 
 }
-//enum CouponParamItemType {Percent, Duration}
-
 
 enum CouponItemType {Name, Code, From, To, Percent, Duration}
 
