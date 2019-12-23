@@ -43,3 +43,5 @@ class OfferParamItem {
 }
 enum OfferParamItemType {Discount, Lenght}
 
+
+
