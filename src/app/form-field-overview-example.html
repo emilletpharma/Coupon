@@ -1,75 +1,29 @@
 <div class="container">
 	<div class="header">
 		<div class="title bold">Configuration des offres promotionnelles</div>
-		<button mat-flat-button class="primary-button">Primary</button>
+		<button mat-flat-button class="primary-button">Nouvelle offre</button>
 	</div>
 
 	<div class="content">
 		<div class="left">
 
-			<div> Salt </div>
+      <table>
+        <th>
+          AAA
+        </th>
+        <tr *ngFor="let value of values">
 
-			<div> Paprika </div>
-			<div> Pepper </div>
-			<div> Salt </div>
-			<div> Paprika </div>
+          {{value}}
 
 
-			<div> Pepper </div>
-			<div> Salt </div>
-			<div> Paprika </div>
-			<div> Pepper </div>
-			<div> Salt </div>
-			<div> Paprika </div>
-			<div> Pepper </div>
-			<div> Salt </div>
-			<div> Paprika </div>
-			<div> Pepper </div>
-			<div> Salt </div>
-			<div> Paprika </div>
-			<div> Pepper </div>
-			<div> Salt </div>
-			<div> Paprika </div>
-			<div> Pepper </div>
-			<div> Salt </div>
-			<div> Paprika </div>
-			<div> Pepper </div>
-			<div> Salt </div>
-			<div> Paprika </div>
-			<div> Pepper </div>
-			<div> Salt </div>
-			<div> Paprika </div>
+        </tr>
 
-			<div> Salt </div>
-			<div> Paprika </div>
-			<div> Pepper </div>
-			<div> Salt </div>
-			<div> Paprika </div>
 
-			<div> Pepper </div>
-			<div> Salt </div>
-			<div> Paprika </div>
-			<div> Pepper </div>
-			<div> Salt </div>
-			<div> Paprika </div>
-			<div> Pepper </div>
-			<div> Salt </div>
-			<div> Paprika </div>
-			<div> Pepper </div>
-			<div> Salt </div>
-			<div> Paprika </div>
-			<div> Pepper </div>
-			<div> Salt </div>
-			<div> Paprika </div>
-			<div> Pepper </div>
-			<div> Salt </div>
-			<div> Paprika </div>
-			<div> Pepper </div>
-			<div> Salt </div>
-			<div> Paprika </div>
-			<div> Pepper </div>
-			<div> Salt </div>
-			<div> Paprika </div>
+      </table>
+
+
+
+
 
 
 
@@ -127,58 +81,6 @@
 						</div>
 					</div>
           
-
-
-
-					<!-- 					<div class="horizontal">
-
-						<div class="right-space bold">Période de validité</div>
-						<div>
-							<mat-checkbox class="right-space">Début</mat-checkbox>
-						</div>
-						<div>
-							<mat-form-field appearance="outline">
-								<input matInput [matDatepicker]="picker1" placeholder="Choisir une date">
-								<mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
-								<mat-datepicker #picker1></mat-datepicker>
-							</mat-form-field>
-						</div>
-					</div>
-
-					<div class="horizontal">
-						<div class="right-space bold">aaa</div>
-						<div>
-							<mat-checkbox class="right-space">Fin</mat-checkbox>
-						</div>
-						<div>
-							<mat-form-field appearance="outline">
-								<input matInput [matDatepicker]="picker2" placeholder="Choisir une date">
-								<mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
-								<mat-datepicker #picker2></mat-datepicker>
-							</mat-form-field>
-						</div>
-					</div>
-
-					<div class="horizontal">
-						<div class="right-space bold">Réduction</div>
-						<mat-form-field appearance="outline" class="right-space">
-							<input ty matInput placeholder="Pourcentage">
-            </mat-form-field>
-							<div>%</div>
-					</div>
-
-					<div class="horizontal">
-						<div class="right-space bold">Durée</div>
-						<mat-form-field appearance="outline" class="right-space">
-							<input matInput placeholder="Nombre">
-            </mat-form-field>
-							<div>mois</div>
-					</div> 
-					<div class="bold">Description</div>
-					<mat-form-field class="full-width" appearance="outline">
-						<textarea  matInput></textarea>
-					</mat-form-field>
-          -->
 					<button mat-flat-button class="primary-button end">Enregistrer</button>
 		</div>
     </div>
