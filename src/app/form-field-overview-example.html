@@ -33,14 +33,14 @@
 					<div class="title bold">Paramètres de l'offre</div>
 					<button mat-flat-button class="secondary-button">Supprimer l'offre</button>
 				</div>
-				<mat-form-field appearance="outline" class="full-width">
-					<mat-label>libellé de l'offre</mat-label>
+<div class="vertical">
+        				<mat-form-field appearance="outline" *ngFor="let identity of item.identityItemList" >
+														<mat-label>libellé de l'offre</mat-label>
 					<input matInput placeholder="libellé de l'offre">
-        </mat-form-field>
-					<mat-form-field appearance="outline">
-						<mat-label>Code promotionnel</mat-label>
-						<input matInput placeholder="Code promotionnel">
-        </mat-form-field>
+								</mat-form-field>
+</div>
+
+
 
 						<div class="horizontal">
 							<div class="vertical">

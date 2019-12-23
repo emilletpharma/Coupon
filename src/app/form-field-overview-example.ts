@@ -7,6 +7,7 @@ import {Component} from '@angular/core';
   styleUrls: ['form-field-overview-example.scss'],
 })
 export class FormFieldOverviewExample {
+
     item = new CouponItem(
 [
     new CouponIdentityItem(CouponItemType.Name ,"", "Libellé de l'offre"),
