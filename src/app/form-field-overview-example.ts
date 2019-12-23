@@ -9,13 +9,13 @@ import {Component} from '@angular/core';
 export class FormFieldOverviewExample {
 
   validityItemList = [
-    new ValidityItem(ValidityItemType.From, "Période de validité", "Début", ""),
-    new ValidityItem(ValidityItemType.From, "", "Fin", "")
+    new ValidityItem(ValidityItemType.From, "Période de validité", "Début"),
+    new ValidityItem(ValidityItemType.From, "", "Fin")
   ]
 
-  promotions = [
-    {title: "Réduction", unit: "%"},
-    {title: "Durée", unit: "mois"}
+  offerParamItemList = [
+    new OfferParamItem(OfferParamItemType.Discount, "Réduction", "%"),
+    new OfferParamItem(OfferParamItemType.Discount, "Durée", "mois")
   ]
 
 
@@ -28,7 +28,7 @@ class ValidityItem {
     public type: ValidityItemType, 
     public title: string, 
     public subtitle: string, 
-    public date: string) {}
+    public date?: string) {}
 }
 
 enum ValidityItemType {From, To}
@@ -36,9 +36,9 @@ enum ValidityItemType {From, To}
 class OfferParamItem {
   constructor(
     public type: OfferParamItemType, 
-    public name: string, 
+    public title: string, 
     public unit: string, 
-    public value: number) {}
+    public value?: number) {}
 
 }
 enum OfferParamItemType {Discount, Lenght}

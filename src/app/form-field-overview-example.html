@@ -63,18 +63,18 @@
 						</div>
 						<div class="horizontal">
 							<div class="vertical">
-								<div *ngFor="let promotion of promotions" class="right-space bold cell">
-									{{promotion.title}}
+								<div *ngFor="let offerParam of offerParamItemList" class="right-space bold cell">
+									{{offerParam.title}}
 								</div>
 							</div>
 							<div class="vertical">
-								<mat-form-field *ngFor="let promotion of promotions" appearance="outline"
+								<mat-form-field *ngFor="let offerParam of offerParamItemList" appearance="outline"
 									class="right-space cell">
 									<input matInput placeholder="Nombre">
             </mat-form-field>
 							</div>
 							<div class="vertical">
-								<div *ngFor="let promotion of promotions" class="right-space cell">{{promotion.unit}}
+								<div *ngFor="let offerParam of offerParamItemList" class="right-space cell">{{offerParam.unit}}
 								</div>
 							</div>
 						</div>
