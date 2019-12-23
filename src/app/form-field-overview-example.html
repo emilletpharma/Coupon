@@ -44,19 +44,19 @@
 
 						<div class="horizontal">
 							<div class="vertical">
-								<div *ngFor="let validity of couponValidityItemList" class="bold right-space cell">
+								<div *ngFor="let validity of item.couponValidityItemList" class="bold right-space cell">
 									{{validity.title}}
 								</div>
 							</div>
 
 							<div class="vertical">
-								<mat-checkbox *ngFor="let validity of couponValidityItemList" class="right-space cell">
+								<mat-checkbox *ngFor="let validity of item.couponValidityItemList" class="right-space cell">
 									{{validity.subtitle}}</mat-checkbox>
 							</div>
 
 							<div class="vertical">
-								<mat-form-field *ngFor="let validity of couponValidityItemList" appearance="outline" class="cell">
-									<input matInput [matDatepicker]="picker" placeholder="Choisir une date">
+								<mat-form-field *ngFor="let validity of item.couponValidityItemList" appearance="outline" class="cell">
+									<input matInput [matDatepicker]="picker" placeholder={{validity.hint}}>
 									<mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
 									<mat-datepicker #picker></mat-datepicker>
 								</mat-form-field>
@@ -64,18 +64,18 @@
 						</div>
 						<div class="horizontal">
 							<div class="vertical">
-								<div *ngFor="let param of couponParamItemList" class="right-space bold cell">
+								<div *ngFor="let param of item.couponParamItemList" class="right-space bold cell">
 									{{param.title}}
 								</div>
 							</div>
 							<div class="vertical">
-								<mat-form-field *ngFor="let param of couponParamItemList" appearance="outline"
+								<mat-form-field *ngFor="let param of item.couponParamItemList" appearance="outline"
 									class="right-space cell">
-									<input matInput placeholder="Nombre">
+									<input matInput placeholder={{param.hint}}>
             </mat-form-field>
 							</div>
 							<div class="vertical">
-								<div *ngFor="let param of couponParamItemList" class="right-space cell">{{param.unit}}
+								<div *ngFor="let param of item.couponParamItemList" class="right-space cell">{{param.unit}}
 								</div>
 							</div>
 						</div>

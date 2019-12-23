@@ -7,20 +7,33 @@ import {Component} from '@angular/core';
   styleUrls: ['form-field-overview-example.scss'],
 })
 export class FormFieldOverviewExample {
+    item = new CouponItem(
+[
+    new CouponIdentityItem(CouponItemType.Name ,"", "Libellé de l'offre"),
+    new CouponIdentityItem(CouponItemType.Code ,"", "Code promotionnel")
+  ],
+[
+    new CouponValidityItem(CouponItemType.From, "Période de validité", "Choisir une date", "Début"),
+    new CouponValidityItem(CouponItemType.To, "", "Choisir une date", "Fin")
+  ],
+  [
+    new CouponParamItem(CouponItemType.Percent, "Réduction", "Pourcentage", "%"),
+    new CouponParamItem(CouponItemType.Duration, "Durée", "Nombre", "mois")
+  ]
+    )
 
-  couponName: string;
-  couponCode: string;
 
-
+/*
   couponValidityItemList = [
-    new CouponValidityItem(CouponValidityItemType.From, "Période de validité", "Début"),
-    new CouponValidityItem(CouponValidityItemType.From, "", "Fin")
+    new CouponValidityItem(CouponItemType.From, "Période de validité", "Choisir une date", "Début"),
+    new CouponValidityItem(CouponItemType.From, "", "Choisir une date", "Fin")
   ]
 
   couponParamItemList = [
-    new CouponParamItem(CouponParamItemType.Percent, "Réduction", "%"),
-    new CouponParamItem(CouponParamItemType.Duration, "Durée", "mois")
+    new CouponParamItem(CouponItemType.Percent, "Réduction", "Pourcentage", "%"),
+    new CouponParamItem(CouponItemType.Duration, "Durée", "Nombre", "mois")
   ]
+  */
 
   
 
@@ -40,26 +53,63 @@ class Coupon {
 
 }
 
+class CouponItem {
+
+  constructor(
+    public identityItemList: CouponIdentityItem[], 
+    public validityItemList:  CouponValidityItem[],
+    public paramItemList: CouponParamItem[]){}
+/*
+  identityItemList = [
+    new CouponIdentityItem(CouponItemType.Name ,"", "Libellé de l'offre"),
+    new CouponIdentityItem(CouponItemType.Code ,"", "Code promotionnel")
+  ]
+
+  validityItemList = [
+    new CouponValidityItem(CouponItemType.From, "Période de validité", "Choisir une date", "Début"),
+    new CouponValidityItem(CouponItemType.To, "", "Choisir une date", "Fin")
+  ]
+
+  paramItemList = [
+    new CouponParamItem(CouponItemType.Percent, "Réduction", "Pourcentage", "%"),
+    new CouponParamItem(CouponItemType.Duration, "Durée", "Nombre", "mois")
+  ]
+  */
+  
+}
+
+class CouponIdentityItem {
+  constructor(
+    public type: CouponItemType, 
+    public title: string, 
+    public hint: string,) {}
+
+}
 
 class CouponValidityItem {
   constructor(
-    public type: CouponValidityItemType, 
-    public title: string, 
+    public type: CouponItemType, 
+    public title: string,
+    public hint: string,
     public subtitle: string, 
     public date?: string) {}
 }
 
-enum CouponValidityItemType {From, To}
+//enum CouponValidityItemType {From, To}
 
 class CouponParamItem {
   constructor(
-    public type: CouponParamItemType, 
+    public type: CouponItemType, 
     public title: string, 
+    public hint: string, 
     public unit: string, 
     public value?: number) {}
 
 }
-enum CouponParamItemType {Percent, Duration}
+//enum CouponParamItemType {Percent, Duration}
+
+
+enum CouponItemType {Name, Code, From, To, Percent, Duration}
 
 
 
