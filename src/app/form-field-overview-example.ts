@@ -29,8 +29,8 @@ couponList = ["Offre interne", "Offre interne","Offre Fidélité", "b","a", "b",
 class Coupon {
     constructor(
     public name: string, 
-    public discount: number,
-    public lenght: number,
+    public percent: number,
+    public duration: number,
     public fromDate?: string, 
     public toDate?: string
     ) {}
