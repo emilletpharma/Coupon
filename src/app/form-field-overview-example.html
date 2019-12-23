@@ -1,5 +1,5 @@
 <div class="container">
-  
+
 	<div class="header">
 		<div class="title bold">Configuration des offres promotionnelles</div>
 		<button mat-flat-button class="primary-button">Nouvelle offre</button>
@@ -15,10 +15,10 @@
 					</div>
 					<mat-icon aria-hidden="false" aria-label="Example home icon">arrow_downward</mat-icon>
 				</th>
-				<tr *ngFor="let value of values">
+				<tr *ngFor="let coupon of couponList">
 					<td>
 						<div class="cell">
-							{{value}}
+							{{coupon}}
 						</div>
 					</td>
 				</tr>
@@ -44,18 +44,18 @@
 
 						<div class="horizontal">
 							<div class="vertical">
-								<div *ngFor="let validity of validityItemList" class="bold right-space cell">
+								<div *ngFor="let validity of couponValidityItemList" class="bold right-space cell">
 									{{validity.title}}
 								</div>
 							</div>
 
 							<div class="vertical">
-								<mat-checkbox *ngFor="let validity of validityItemList" class="right-space cell">
+								<mat-checkbox *ngFor="let validity of couponValidityItemList" class="right-space cell">
 									{{validity.subtitle}}</mat-checkbox>
 							</div>
 
 							<div class="vertical">
-								<mat-form-field *ngFor="let validity of validityItemList" appearance="outline" class="cell">
+								<mat-form-field *ngFor="let validity of couponValidityItemList" appearance="outline" class="cell">
 									<input matInput [matDatepicker]="picker" placeholder="Choisir une date">
 									<mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
 									<mat-datepicker #picker></mat-datepicker>
@@ -64,18 +64,18 @@
 						</div>
 						<div class="horizontal">
 							<div class="vertical">
-								<div *ngFor="let offerParam of offerParamItemList" class="right-space bold cell">
-									{{offerParam.title}}
+								<div *ngFor="let param of couponParamItemList" class="right-space bold cell">
+									{{param.title}}
 								</div>
 							</div>
 							<div class="vertical">
-								<mat-form-field *ngFor="let offerParam of offerParamItemList" appearance="outline"
+								<mat-form-field *ngFor="let param of couponParamItemList" appearance="outline"
 									class="right-space cell">
 									<input matInput placeholder="Nombre">
             </mat-form-field>
 							</div>
 							<div class="vertical">
-								<div *ngFor="let offerParam of offerParamItemList" class="right-space cell">{{offerParam.unit}}
+								<div *ngFor="let param of couponParamItemList" class="right-space cell">{{param.unit}}
 								</div>
 							</div>
 						</div>
