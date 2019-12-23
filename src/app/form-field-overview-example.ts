@@ -8,14 +8,18 @@ import {Component} from '@angular/core';
 })
 export class FormFieldOverviewExample {
 
-  validityItemList = [
-    new ValidityItem(ValidityItemType.From, "Période de validité", "Début"),
-    new ValidityItem(ValidityItemType.From, "", "Fin")
+  couponName: string;
+  couponCode: string;
+
+
+  couponValidityItemList = [
+    new CouponValidityItem(CouponValidityItemType.From, "Période de validité", "Début"),
+    new CouponValidityItem(CouponValidityItemType.From, "", "Fin")
   ]
 
-  offerParamItemList = [
-    new OfferParamItem(OfferParamItemType.Discount, "Réduction", "%"),
-    new OfferParamItem(OfferParamItemType.Discount, "Durée", "mois")
+  couponParamItemList = [
+    new CouponParamItem(CouponParamItemType.Percent, "Réduction", "%"),
+    new CouponParamItem(CouponParamItemType.Duration, "Durée", "mois")
   ]
 
 
@@ -23,25 +27,37 @@ values = ["Offre interne", "Offre interne","Offre Fidélité", "b","a", "b","a",
 
 }
 
-class ValidityItem {
+class Coupon {
+    constructor(
+    public name: string, 
+    public discount: number,
+    public lenght: number,
+    public fromDate?: string, 
+    public toDate?: string
+    ) {}
+
+}
+
+
+class CouponValidityItem {
   constructor(
-    public type: ValidityItemType, 
+    public type: CouponValidityItemType, 
     public title: string, 
     public subtitle: string, 
     public date?: string) {}
 }
 
-enum ValidityItemType {From, To}
+enum CouponValidityItemType {From, To}
 
-class OfferParamItem {
+class CouponParamItem {
   constructor(
-    public type: OfferParamItemType, 
+    public type: CouponParamItemType, 
     public title: string, 
     public unit: string, 
     public value?: number) {}
 
 }
-enum OfferParamItemType {Discount, Lenght}
+enum CouponParamItemType {Percent, Duration}
 
 
 
