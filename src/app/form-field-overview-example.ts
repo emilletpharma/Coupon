@@ -8,9 +8,9 @@ import {Component} from '@angular/core';
 })
 export class FormFieldOverviewExample {
 
-  validities = [
-    {title: "Période de validité", subtitle: "Début", date: "12/12/2019"},
-    {title: "", subtitle: "Fin", date: "12/12/2019"}
+  validityItemList = [
+    new ValidityItem(ValidityItemType.From, "Période de validité", "Début", ""),
+    new ValidityItem(ValidityItemType.From, "", "Fin", "")
   ]
 
   promotions = [
@@ -22,4 +22,24 @@ export class FormFieldOverviewExample {
 values = ["Offre interne", "Offre interne","Offre Fidélité", "b","a", "b","a", "b","a", "b","a", "b","a", "b","a", "b","a", "b","a", "b","a", "b","a", "b","a", "b","a", "b","a", "b","a", "b","a", "b","a", "b","a", "b","b","a", "b","a", "b","a", "b","a", "b","a", "b","a", "b","a", "b","a", "b","a", "b","b","a", "b","a", "b","a", "b","a", "b","a", "b","a", "b","a", "b","a", "b","a", "b","b","a", "b","a", "b","a", "b","a", "b","a", "b","a", "b","a", "b","a", "b","a", "b",]
 
 }
+
+class ValidityItem {
+  constructor(
+    public type: ValidityItemType, 
+    public title: string, 
+    public subtitle: string, 
+    public date: string) {}
+}
+
+enum ValidityItemType {From, To}
+
+class OfferParamItem {
+  constructor(
+    public type: OfferParamItemType, 
+    public name: string, 
+    public unit: string, 
+    public value: number) {}
+
+}
+enum OfferParamItemType {Discount, Lenght}
 
