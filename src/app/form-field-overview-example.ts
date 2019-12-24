@@ -104,9 +104,9 @@ export class FormFieldOverviewExample {
     );
   }
 
-  public onValidityDateRequest(validityItem: CouponValidityItem, validityItems: CouponValidityItem[]): Date | null | undefined {
-    const oppositeValidity = validityItems.filter(v => v.type !== validityItem.type)[0];
-    return oppositeValidity.date;
+  public onValidityDateRequest(validityItem: CouponValidityItem, validityItems: CouponValidityItem[]): Date | null {
+    const oppositeValidity = validityItems.filter(v => v.type !== validityItem.type).shift();
+    return oppositeValidity ? oppositeValidity.date : null;
   }
 }
 
