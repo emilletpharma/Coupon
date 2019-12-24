@@ -33,12 +33,14 @@
 					<div class="title bold">Paramètres de l'offre</div>
 					<button mat-flat-button class="secondary-button">Supprimer l'offre</button>
 				</div>
-				<div class="vertical">
+
+				<form [formGroup]="formGroup" class="vertical">
 					<mat-form-field appearance="outline" *ngFor="let identity of item.identityItemList">
 						<mat-label>{{identity.hint}}</mat-label>
-						<input matInput>
+						<input [formControlName]="identity.type"  matInput>
 					</mat-form-field>
-				</div>
+				</form>
+
 
 
 
@@ -55,12 +57,14 @@
 					</div>
 
 					<div class="vertical">
-						<mat-form-field *ngFor="let validity of item.validityItemList" appearance="outline"
-							class="cell">
-							<input matInput [matDatepicker]="picker" placeholder={{validity.hint}}>
-							<mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-							<mat-datepicker #picker></mat-datepicker>
-						</mat-form-field>
+						<form [formGroup]="formGroup">
+							<mat-form-field *ngFor="let validity of item.validityItemList" appearance="outline"
+								class="cell">
+								<input matInput [matDatepicker]="picker" placeholder={{validity.hint}}>
+								<mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+								<mat-datepicker #picker></mat-datepicker>
+							</mat-form-field>
+						</form>
 					</div>
 				</div>
 				<div class="horizontal">
@@ -69,12 +73,12 @@
 							{{param.title}}
 						</div>
 					</div>
-					<div class="vertical">
+					<form [formGroup]="formGroup" class="vertical">
 						<mat-form-field *ngFor="let param of item.paramItemList" appearance="outline"
 							class="right-space cell">
-							<input type="number" matInput placeholder={{param.hint}}>
+							<input [formControlName]="param.type" type="number" matInput placeholder={{param.hint}}>
             </mat-form-field>
-					</div>
+					</form>
 					<div class="vertical">
 						<div *ngFor="let param of item.paramItemList" class="right-space cell">{{param.unit}}
 						</div>
