@@ -53,20 +53,19 @@
 
 					<div class="vertical">
 						<mat-checkbox *ngFor="let validity of (item$ | async)?.validityItemList"
-							class="right-space cell">
+							class="right-space cell" [checked]="validity.date" >
 							{{validity.subtitle}}</mat-checkbox>
 					</div>
 
-
 					<form [formGroup]="formGroup" class="vertical">
-						<mat-form-field *ngFor="let validity of (item$ | async)?.validityItemList" appearance="outline"
+						<mat-form-field *ngFor="let validityItem of (item$ | async)?.validityItemList as validityItems" appearance="outline"
 							class="cell">
 							<input matInput
-              [min]="validity.type === 'toDate' && (coupon$ | async)?.fromDate ? (coupon$ | async).fromDate : null"
-              [max]="validity.type === 'fromDate' && (coupon$ | async)?.toDate ? (coupon$ | async).toDate : null"
-              [formControlName]="validity.type"
+              [min]="validityItem.type === 'toDate' ? onValidityDateRequest(validityItem, validityItems) : null"
+              [max]="validityItem.type === 'fromDate' ? onValidityDateRequest(validityItem, validityItems) : null"
+              [formControlName]="validityItem.type"
                 [matDatepicker]="picker"
-                 placeholder={{validity.hint}}>
+                 placeholder={{validityItem.hint}}>
 							<mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
 							<mat-datepicker #picker></mat-datepicker>
 						</mat-form-field>

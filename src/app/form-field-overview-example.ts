@@ -25,18 +25,32 @@ export class FormFieldOverviewExample {
   sub: Subscription = new Subscription();
   sub2: Subscription = new Subscription();
 
-  min = new Date();
-
   constructor(private formBuilder: FormBuilder) {
         this.formGroup = this.formBuilder.group(new Coupon());
 
 
-    this.sub2 = this.coupon$.subscribe(coupon =>
-      this.formGroup.setValue(coupon, {emitEvent: false}))
+    this.sub2 = this.coupon$.subscribe(coupon => {
+    
+    setTimeout(() => {
+      this.formGroup.setValue({...coupon}, {emitEvent: false})
+      }, 500)
+    
+    
+    }
+      )
 
     this.sub = this.formGroup.valueChanges.subscribe(coupon => {
+    //  console.log("AAA", coupon);
+   //   this.coupon$.next({...coupon});
+      this.item$.next(this.convertCouponToItem(coupon));
+
+/*
+      setTimeout(() => {
       this.coupon$.next(coupon);
       console.log(coupon);
+
+      }, 1)
+*/
     });
   }
 
@@ -90,14 +104,40 @@ export class FormFieldOverviewExample {
     );
   }
 
-  public onValidityDateRequest(type: CouponItemType) {
+  public onValidityDateRequest(validityItem: CouponValidityItem, validityItems: CouponValidityItem[]): Date | null | undefined {
+
+        console.log("AAA----->", validityItem);
+    
+    console.log("BBb----->", validityItems);
+
+    const oppositeValidity = validityItems.filter(v => v.type !== validityItem.type)[0];
+
+     console.log("CCC----->", oppositeValidity.date);
+
+return oppositeValidity.date;
+
+    //console.log("AAA----->", type);
+    
+   // console.log("BBb----->", validityItems);
+   /*
+   console.log(">>>>>>1", type);
+   console.log(">>>1>>>1", validityItems);
+    const v = validityItems.filter(v => v.type === type).shift;
+    console.log(">>>>>>2", v.date);
+    return v.date !== undefined ? v.date : null;
+    */
     /*
-    const validity = this.item.validityItemList.filter(v => v.type === type)
+    const validity = validityItems.filter(v => v.type === type)
       .shift;
     return validity instanceof CouponValidityItem ? validity.date : null;
     */
+  
   }
 }
+
+/*
+validity.type === 'toDate' && onValidityDateRequest('fromDate', validityItems) ? onValidityDateRequest('fromDate, validityItems') : null
+*/
 
 class Coupon {
   constructor(
