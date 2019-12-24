@@ -18,143 +18,84 @@ import {
   styleUrls: ["form-field-overview-example.scss"]
 })
 export class FormFieldOverviewExample {
-  item = new CouponItem(
-    [
-      new CouponIdentityItem(CouponItemType.Name, "", "Libellé de l'offre"),
-      new CouponIdentityItem(CouponItemType.Code, "", "Code promotionnel")
-    ],
-    [
-      new CouponValidityItem(
-        CouponItemType.From,
-        "Période de validité",
-        "Choisir une date",
-        "Début"
-      ),
-      new CouponValidityItem(CouponItemType.To, "", "Choisir une date", "Fin")
-    ],
-    [
-      new CouponParamItem(
-        CouponItemType.Percent,
-        "Réduction",
-        "Pourcentage",
-        "%"
-      ),
-      new CouponParamItem(CouponItemType.Duration, "Durée", "Nombre", "mois")
-    ]
-  );
-
-  coupon = new Coupon("name", "code", 100, 12, "", "");
-
-  couponList = [
-    "Offre interne",
-    "Offre interne",
-    "Offre Fidélité",
-    "b",
-    "a",
-    "b",
-    "a",
-    "b",
-    "a",
-    "b",
-    "a",
-    "b",
-    "a",
-    "b",
-    "a",
-    "b",
-    "a",
-    "b",
-    "a",
-    "b",
-    "a",
-    "b",
-    "a",
-    "b",
-    "a",
-    "b",
-    "a",
-    "b",
-    "a",
-    "b",
-    "a",
-    "b",
-    "a",
-    "b",
-    "a",
-    "b",
-    "a",
-    "b",
-    "b",
-    "a",
-    "b",
-    "a",
-    "b",
-    "a",
-    "b",
-    "a",
-    "b",
-    "a",
-    "b",
-    "a",
-    "b",
-    "a",
-    "b",
-    "a",
-    "b",
-    "a",
-    "b",
-    "b",
-    "a",
-    "b",
-    "a",
-    "b",
-    "a",
-    "b",
-    "a",
-    "b",
-    "a",
-    "b",
-    "a",
-    "b",
-    "a",
-    "b",
-    "a",
-    "b",
-    "a",
-    "b",
-    "b",
-    "a",
-    "b",
-    "a",
-    "b",
-    "a",
-    "b",
-    "a",
-    "b",
-    "a",
-    "b",
-    "a",
-    "b",
-    "a",
-    "b",
-    "a",
-    "b",
-    "a",
-    "b"
-  ];
-
+  item$ = new BehaviorSubject<CouponItem>(this.convertCouponToItem(new Coupon("name", "code", 100, 12, new Date(), new Date())));
+  coupon$ = new BehaviorSubject<Coupon>(new Coupon("name", "code", 100, 12, new Date(), new Date()));
+  couponList = ["Offre interne", "Offre interne", "Offre Fidélité"];
   formGroup: FormGroup;
-
   sub: Subscription = new Subscription();
+  sub2: Subscription = new Subscription();
+
+  min = new Date();
 
   constructor(private formBuilder: FormBuilder) {
-    this.formGroup = this.formBuilder.group({
-      [CouponItemType.Name]: this.coupon.name,
-      [CouponItemType.Code]: this.coupon.code,
-      [CouponItemType.Percent]: this.coupon.percent,
-      [CouponItemType.Duration]: this.coupon.duration
+        this.formGroup = this.formBuilder.group(new Coupon());
+
+
+    this.sub2 = this.coupon$.subscribe(coupon =>
+      this.formGroup.setValue(coupon, {emitEvent: false}))
+
+    this.sub = this.formGroup.valueChanges.subscribe(coupon => {
+      this.coupon$.next(coupon);
+      console.log(coupon);
     });
-    this.sub = this.formGroup.valueChanges.subscribe(v => console.log(v));
+  }
+
+  public convertCouponToItem(coupon: Coupon) {
+    return new CouponItem(
+      [
+        new CouponIdentityItem(
+          CouponItemType.Name,
+          "Libellé de l'offre",
+          coupon.name
+        ),
+        new CouponIdentityItem(
+          CouponItemType.Code,
+          "Code promotionnel",
+          coupon.code
+          
+        )
+      ],
+      [
+        new CouponValidityItem(
+          CouponItemType.FromDate,
+          "Période de validité",
+          "Choisir une date",
+          "Début",
+          coupon.fromDate
+        ),
+        new CouponValidityItem(
+          CouponItemType.ToDate,
+          "",
+          "Choisir une date",
+          "Fin",
+          coupon.toDate
+        )
+      ],
+      [
+        new CouponParamItem(
+          CouponItemType.Percent,
+          "Réduction",
+          "Pourcentage",
+          "%",
+          coupon.percent
+        ),
+        new CouponParamItem(
+          CouponItemType.Duration,
+          "Durée",
+          "Nombre",
+          "mois",
+          coupon.duration
+        )
+      ]
+    );
+  }
+
+  public onValidityDateRequest(type: CouponItemType) {
+    /*
+    const validity = this.item.validityItemList.filter(v => v.type === type)
+      .shift;
+    return validity instanceof CouponValidityItem ? validity.date : null;
+    */
   }
 }
 
@@ -164,8 +105,8 @@ class Coupon {
     public code?: string,
     public percent?: number,
     public duration?: number,
-    public fromDate?: string,
-    public toDate?: string
+    public fromDate?: Date,
+    public toDate?: Date
   ) {}
 }
 
@@ -180,8 +121,8 @@ class CouponItem {
 class CouponIdentityItem {
   constructor(
     public type: CouponItemType,
-    public title: string,
-    public hint: string
+    public hint: string,
+    public title?: string
   ) {}
 }
 
@@ -191,7 +132,7 @@ class CouponValidityItem {
     public title: string,
     public hint: string,
     public subtitle: string,
-    public date?: string
+    public date?: Date
   ) {}
 }
 
@@ -206,10 +147,10 @@ class CouponParamItem {
 }
 
 enum CouponItemType {
-  Name = "NAME",
-  Code = "CODE",
-  From = "FROM",
-  To = "TO",
-  Percent = "PERCENT",
-  Duration = "DURATION"
+  Name = "name",
+  Code = "code",
+  FromDate = "fromDate",
+  ToDate = "toDate",
+  Percent = "percent",
+  Duration = "duration"
 }

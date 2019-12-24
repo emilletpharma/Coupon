@@ -35,7 +35,7 @@
 				</div>
 
 				<form [formGroup]="formGroup" class="vertical">
-					<mat-form-field appearance="outline" *ngFor="let identity of item.identityItemList">
+					<mat-form-field appearance="outline" *ngFor="let identity of (item$ | async)?.identityItemList">
 						<mat-label>{{identity.hint}}</mat-label>
 						<input [formControlName]="identity.type"  matInput>
 					</mat-form-field>
@@ -46,41 +46,48 @@
 
 				<div class="horizontal">
 					<div class="vertical">
-						<div *ngFor="let validity of item.validityItemList" class="bold right-space cell">
+						<div *ngFor="let validity of (item$ | async)?.validityItemList" class="bold right-space cell">
 							{{validity.title}}
 						</div>
 					</div>
 
 					<div class="vertical">
-						<mat-checkbox *ngFor="let validity of item.validityItemList" class="right-space cell">
+						<mat-checkbox *ngFor="let validity of (item$ | async)?.validityItemList"
+							class="right-space cell">
 							{{validity.subtitle}}</mat-checkbox>
 					</div>
 
-					<div class="vertical">
-						<form [formGroup]="formGroup">
-							<mat-form-field *ngFor="let validity of item.validityItemList" appearance="outline"
-								class="cell">
-								<input matInput [matDatepicker]="picker" placeholder={{validity.hint}}>
-								<mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-								<mat-datepicker #picker></mat-datepicker>
-							</mat-form-field>
-						</form>
-					</div>
+
+					<form [formGroup]="formGroup" class="vertical">
+						<mat-form-field *ngFor="let validity of (item$ | async)?.validityItemList" appearance="outline"
+							class="cell">
+							<input matInput
+              [min]="validity.type === 'toDate' && (coupon$ | async)?.fromDate ? (coupon$ | async).fromDate : null"
+              [max]="validity.type === 'fromDate' && (coupon$ | async)?.toDate ? (coupon$ | async).toDate : null"
+              [formControlName]="validity.type"
+                [matDatepicker]="picker"
+                 placeholder={{validity.hint}}>
+							<mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+							<mat-datepicker #picker></mat-datepicker>
+						</mat-form-field>
+					</form>
+
 				</div>
 				<div class="horizontal">
 					<div class="vertical">
-						<div *ngFor="let param of item.paramItemList" class="right-space bold cell">
+						<div *ngFor="let param of (item$ | async)?.paramItemList" class="right-space bold cell">
 							{{param.title}}
 						</div>
 					</div>
 					<form [formGroup]="formGroup" class="vertical">
-						<mat-form-field *ngFor="let param of item.paramItemList" appearance="outline"
+						<mat-form-field *ngFor="let param of (item$ | async)?.paramItemList" appearance="outline"
 							class="right-space cell">
 							<input [formControlName]="param.type" type="number" matInput placeholder={{param.hint}}>
             </mat-form-field>
 					</form>
 					<div class="vertical">
-						<div *ngFor="let param of item.paramItemList" class="right-space cell">{{param.unit}}
+						<div *ngFor="let param of (item$ | async)?.paramItemList" class="right-space cell">
+							{{param.unit}}
 						</div>
 					</div>
 				</div>
