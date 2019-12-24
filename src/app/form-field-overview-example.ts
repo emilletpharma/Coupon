@@ -105,33 +105,8 @@ export class FormFieldOverviewExample {
   }
 
   public onValidityDateRequest(validityItem: CouponValidityItem, validityItems: CouponValidityItem[]): Date | null | undefined {
-
-        console.log("AAA----->", validityItem);
-    
-    console.log("BBb----->", validityItems);
-
     const oppositeValidity = validityItems.filter(v => v.type !== validityItem.type)[0];
-
-     console.log("CCC----->", oppositeValidity.date);
-
-return oppositeValidity.date;
-
-    //console.log("AAA----->", type);
-    
-   // console.log("BBb----->", validityItems);
-   /*
-   console.log(">>>>>>1", type);
-   console.log(">>>1>>>1", validityItems);
-    const v = validityItems.filter(v => v.type === type).shift;
-    console.log(">>>>>>2", v.date);
-    return v.date !== undefined ? v.date : null;
-    */
-    /*
-    const validity = validityItems.filter(v => v.type === type)
-      .shift;
-    return validity instanceof CouponValidityItem ? validity.date : null;
-    */
-  
+    return oppositeValidity.date;
   }
 }
 
